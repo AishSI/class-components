@@ -1,0 +1,26 @@
+.inputContainer {
+  display: flex;
+  width: 75%;
+  gap: 15px;
+  align-items: center;
+}
+
+.inputSearch {
+  height: 60px;
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+.buttonSearch {
+  height: 60px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9d128;
+  color: #da6427;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
