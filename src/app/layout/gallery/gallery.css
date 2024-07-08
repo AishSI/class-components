@@ -1,0 +1,9 @@
+.gallery {
+  width: 100%;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  font-weight: bold;
+  border: 1px solid;
+  color: blue;
+  background-color: #d3d3ff;
+}
