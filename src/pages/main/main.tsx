@@ -7,7 +7,7 @@ export class Main extends Component {
     return (
       <>
         <SearchBar />
-        <Gallery />
+        <Gallery findText="" />
       </>
     );
   }
