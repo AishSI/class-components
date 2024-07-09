@@ -18,16 +18,22 @@ export class Gallery extends Component<Props, State> {
     };
   }
 
-  async getSearchData() {
+  getSearchData = async () => {
     this.setState({ data: null });
 
     const { findText } = this.props;
     const data = await getApiData(findText);
     this.setState({ data });
-  }
+  };
 
   async componentDidMount() {
     this.getSearchData();
+  }
+
+  async componentDidUpdate(prevProps: Props) {
+    if (prevProps.findText !== this.props.findText) {
+      this.getSearchData();
+    }
   }
 
   render() {
@@ -49,6 +55,7 @@ export class Gallery extends Component<Props, State> {
           <div className="card" key={animal.uid}>
             <h2 className="title">{animal.name}</h2>
             <p className="cardInfo">Earth animal: {converterYesNo(animal.earthAnimal)}</p>
+            <p className="cardInfo">Earth insect: {converterYesNo(animal.earthInsect)}</p>
             <p className="cardInfo">Feline: {converterYesNo(animal.feline)}</p>
             <p className="cardInfo">Avian: {converterYesNo(animal.avian)}</p>
           </div>

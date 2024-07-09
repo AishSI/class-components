@@ -1,13 +1,13 @@
 import { ChangeEvent, Component } from 'react';
 import './inputSearch.css';
 
-interface SearchProps {
+interface Props {
   searchData: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onSearch: () => void;
 }
 
-export class InputSearch extends Component<SearchProps> {
+export class InputSearch extends Component<Props> {
   render() {
     return (
       <div className="inputContainer">
