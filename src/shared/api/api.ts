@@ -38,7 +38,7 @@ export async function getApiData(findText: string): Promise<AnimalsResponce> {
     pageSize = 10;
     methodRequest = 'POST';
   } else {
-    pageSize = 50;
+    pageSize = 30;
     methodRequest = 'GET';
   }
 
@@ -48,7 +48,6 @@ export async function getApiData(findText: string): Promise<AnimalsResponce> {
   });
 
   const data = await responce.json();
-  console.log(data);
 
   return data;
 }
