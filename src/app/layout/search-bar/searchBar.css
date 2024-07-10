@@ -1,0 +1,29 @@
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 25px;
+  border: 1px solid;
+  background-color: #ff9800;
+  color: blue;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.buttonError {
+  height: 60px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f92828;
+  color: #f9e440;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
