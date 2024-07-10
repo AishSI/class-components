@@ -10,10 +10,11 @@
     "lint:fix": "eslint --fix",
     "format:fix": "prettier --write src --config .prettierrc",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "*/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "npm run lint:fix",
       "npm run format:fix"
     ],
