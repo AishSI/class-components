@@ -1,11 +1,12 @@
 import './App.css';
-import { Main } from '@/pages';
 import { ErrorBoundary } from '@/features/error-boundary';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router/router';
 
 export const App = (): React.ReactNode => {
   return (
     <ErrorBoundary>
-      <Main />
+      <RouterProvider router={router} />
     </ErrorBoundary>
   );
 };
