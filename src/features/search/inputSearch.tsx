@@ -1,4 +1,4 @@
-import { ChangeEvent, Component } from 'react';
+import { ChangeEvent } from 'react';
 import './inputSearch.css';
 
 interface Props {
@@ -7,21 +7,20 @@ interface Props {
   onSearch: () => void;
 }
 
-export class InputSearch extends Component<Props> {
-  render() {
-    return (
-      <div className="inputContainer">
-        <input
-          className="inputSearch"
-          type="text"
-          placeholder="enter the search data"
-          value={this.props.searchData}
-          onChange={this.props.onChange}
-        />
-        <button className="buttonSearch" onClick={this.props.onSearch}>
-          Search
-        </button>
-      </div>
-    );
-  }
-}
+export const InputSearch = (props: Props) => {
+  const { searchData, onChange, onSearch } = props;
+  return (
+    <div className="inputContainer">
+      <input
+        className="inputSearch"
+        type="text"
+        placeholder="enter the search data"
+        value={searchData}
+        onChange={onChange}
+      />
+      <button className="buttonSearch" onClick={onSearch}>
+        Search
+      </button>
+    </div>
+  );
+};
