@@ -1,12 +1,13 @@
 import { Main } from '@/pages';
 import { NotFound } from '@/pages/not-found';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { ErrorBoundary } from '@/features';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
-    errorElement: <NotFound />,
+    errorElement: <ErrorBoundary />,
   },
   {
     path: '/not-found',
