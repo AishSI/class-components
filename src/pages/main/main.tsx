@@ -1,18 +1,18 @@
 import { Gallery } from '@/app/layout/gallery';
 import { SearchBar } from '@/app/layout/search-bar';
-import { useState } from 'react';
+import { useLocalStorage } from '@/features/restore-search/hooks';
 
 export const Main = (): React.ReactNode => {
-  const [findText, setFindText] = useState(localStorage.getItem('searchData') || '');
+  const [searchText, setSearchText] = useLocalStorage();
 
-  const handleFind = (findText: string) => {
-    setFindText(findText);
+  const handleFind = (searchText: string) => {
+    setSearchText(searchText);
   };
 
   return (
     <>
       <SearchBar onSearch={handleFind} />
-      <Gallery findText={findText} />
+      <Gallery findText={searchText} />
     </>
   );
 };

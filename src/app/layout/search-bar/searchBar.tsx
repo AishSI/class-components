@@ -1,26 +1,42 @@
 import { ChangeEvent, useState } from 'react';
 import './searchBar.css';
 import { InputSearch } from '@/features';
+import { useLocalStorage } from '@/features/restore-search/hooks';
 
-interface Props {
+interface SearchBarProps {
   onSearch: (findText: string) => void;
 }
 
-export const SearchBar = (props: Props): React.ReactNode => {
-  const [findText, setFindText] = useState(localStorage.getItem('searchData') || '');
+export const SearchBar = ({ onSearch }: SearchBarProps): React.ReactNode => {
+  const [searchTextLS, setSearchTextLS] = useLocalStorage();
+  const [searchText, setSearchText] = useState(searchTextLS);
+
+  const [errorCaused, setErrorCaused] = useState(false);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFindText(event.target.value);
+    setSearchText(event.target.value);
   };
 
   const handleSearch = () => {
-    localStorage.setItem('searchData', findText);
-    props.onSearch(findText);
+    setSearchTextLS(searchText);
+    onSearch(searchText);
   };
+
+  const handleError = () => {
+    setErrorCaused(true);
+  };
+
+  if (errorCaused) {
+    throw new Error('You caused an application error');
+  }
 
   return (
     <div className="searchBar">
-      <InputSearch searchData={findText} onChange={handleSearchChange} onSearch={handleSearch} />
+      <InputSearch searchData={searchText} onChange={handleSearchChange} onSearch={handleSearch} />
+
+      <button className="buttonError" onClick={handleError}>
+        Do not press!
+      </button>
     </div>
   );
 };
